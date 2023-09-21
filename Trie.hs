@@ -44,4 +44,6 @@ trie_words  (Trie _ children) = map trie_char children
 trie_first_word :: Trie -> String -> Maybe String
 trie_first_word (Trie Nothing []) _ = Nothing
 -- If the value is something return the prefix, else, recursievly look depth first.
--- trie_first_word (Trie v c) p = 
+trie_first_word (Trie v c) p = case v of
+    Just value -> Just p
+    Nothing -> Nothing
